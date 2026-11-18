@@ -3,188 +3,730 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amy & Osi | Wedding Invitation</title>
+<meta name="theme-color" content="#541b2d">
+
+<title>Amy & Osi | Wedding Celebration</title>
+
+<meta name="description" content="Join Amy and Osi as they celebrate their wedding on January 2, 2027.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --wine: #541b2d;
+  --wine-dark: #35111e;
+  --cream: #f8f3eb;
+  --champagne: #d9c29c;
+  --text: #49313a;
+  --muted: #8a747b;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: #f7f1e8;
-  color: #541b2d;
-  font-family: Georgia, serif;
-  text-align: center;
+html {
+  scroll-behavior: smooth;
 }
 
-.hero {
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cover {
   min-height: 100vh;
+  min-height: 100svh;
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,.05), transparent 65%),
+    var(--wine-dark);
+  color: var(--cream);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  background: #541b2d;
-  color: #f7f1e8;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
 }
 
-.small {
-  letter-spacing: 4px;
-  font-size: 11px;
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 17px;
+  border: 1px solid rgba(217,194,156,.5);
+  pointer-events: none;
+}
+
+.cover-inner {
+  max-width: 550px;
+  animation: fadeIn 1.5s ease;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 5px;
   text-transform: uppercase;
+  color: var(--champagne);
+  line-height: 2;
 }
 
-.names {
-  font-size: clamp(48px, 12vw, 85px);
-  font-weight: normal;
+.cover h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(65px, 15vw, 105px);
+  line-height: 1.05;
+  margin: 30px 0 20px;
+}
+
+.cover h1 span {
   font-style: italic;
-  margin: 25px 0;
+  color: var(--champagne);
 }
 
-button {
-  padding: 14px 28px;
-  margin-top: 25px;
-  border: 1px solid #e4cda9;
+.cover-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #eadfce;
+  line-height: 1.5;
+}
+
+.open-btn {
   background: transparent;
-  color: #f7f1e8;
-  letter-spacing: 2px;
+  border: 1px solid var(--champagne);
+  color: var(--cream);
+  padding: 16px 34px;
+  margin-top: 45px;
+  letter-spacing: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
   cursor: pointer;
+  transition: .3s;
+}
+
+.open-btn:hover {
+  background: var(--champagne);
+  color: var(--wine-dark);
+}
+
+.cover-date {
+  margin-top: 45px;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--champagne);
 }
 
 #invitation {
   display: none;
 }
 
+#invitation.show {
+  display: block;
+  animation: fadeIn 1s ease;
+}
+
 .section {
-  padding: 70px 25px;
+  padding: 85px 22px;
+  text-align: center;
 }
 
-h2 {
-  font-size: 32px;
-  font-weight: normal;
-  margin-bottom: 25px;
+.section-inner {
+  max-width: 720px;
+  margin: auto;
 }
 
-.date {
-  font-size: 24px;
-  margin: 20px;
+.section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #977a65;
+  margin-bottom: 20px;
 }
 
-#countdown {
-  font-size: 20px;
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 8vw, 55px);
+  font-weight: 400;
+  color: var(--wine);
+  margin-bottom: 22px;
+}
+
+.section p {
+  font-size: 13px;
   line-height: 2;
+}
+
+.intro {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.intro .names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(55px, 12vw, 85px);
+  font-style: italic;
+  color: var(--wine);
+  margin: 25px 0;
+  font-weight: 400;
+}
+
+.ampersand {
+  color: #b99c78;
+  font-size: 35px;
+  display: block;
+  margin: 5px;
+}
+
+.divider {
+  width: 55px;
+  height: 1px;
+  background: var(--champagne);
+  margin: 30px auto;
+}
+
+.date-display {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--wine);
+  font-size: 29px;
   margin-top: 25px;
 }
 
-.details {
-  line-height: 2;
-  margin-top: 20px;
+.countdown-section {
+  background: var(--wine);
+  color: var(--cream);
 }
 
-.rsvp {
-  display: inline-block;
-  padding: 15px 30px;
-  margin-top: 30px;
-  background: #541b2d;
-  color: #f7f1e8;
-  text-decoration: none;
+.countdown-section h2 {
+  color: var(--cream);
+}
+
+.countdown-section .section-label {
+  color: var(--champagne);
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px, 5vw, 35px);
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  min-width: 55px;
+}
+
+.countdown-item strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 400;
+  display: block;
+  color: var(--champagne);
+}
+
+.countdown-item span {
+  font-size: 9px;
   letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.soft-section {
+  background: #f1e9de;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.detail-card {
+  border: 1px solid #dfd0bc;
+  padding: 30px 12px;
+  background: rgba(255,255,255,.25);
+}
+
+.detail-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  font-weight: 400;
+  color: var(--wine);
+  margin-bottom: 12px;
+}
+
+.detail-card p {
+  font-size: 11px;
+}
+
+.events {
+  margin-top: 35px;
+  text-align: left;
+}
+
+.event {
+  display: flex;
+  gap: 20px;
+  padding: 20px 5px;
+  border-bottom: 1px solid #e2d6c8;
+}
+
+.event-time {
+  min-width: 90px;
+  font-size: 11px;
+  color: #9b785f;
+  padding-top: 5px;
+}
+
+.event-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  color: var(--wine);
+}
+
+.event-description {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.dress-box {
+  max-width: 480px;
+  margin: 30px auto 0;
+  border: 1px solid #d9c29c;
+  padding: 30px 20px;
+}
+
+.dress-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: var(--wine);
+}
+
+.gallery-placeholder {
+  border: 1px dashed #c9b79e;
+  padding: 45px 15px;
+  margin-top: 30px;
+  color: #9b8774;
+  font-size: 12px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.gallery img:first-child {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+}
+
+.action-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--wine);
+  color: var(--cream);
+  padding: 16px 28px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 28px;
+  transition: .3s;
+}
+
+.action-btn:hover {
+  background: var(--wine-dark);
 }
 
 footer {
-  background: #541b2d;
-  color: #f7f1e8;
-  padding: 35px;
+  background: var(--wine-dark);
+  color: var(--cream);
+  padding: 65px 20px;
+  text-align: center;
+}
+
+footer h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 55px;
+  font-weight: 400;
+  font-style: italic;
+  margin: 15px 0;
+}
+
+footer p {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--champagne);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 70px 20px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cover::before {
+    inset: 12px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero" id="cover">
-  <p class="small">Together with our families</p>
-  <h1 class="names">Amy & Osi</h1>
-  <p>Invite you to celebrate the beginning of forever</p>
-  <button onclick="openInvitation()">OPEN INVITATION</button>
+<!-- OPENING INVITATION -->
+
+<section class="cover" id="cover">
+  <div class="cover-inner">
+    <p class="eyebrow">Together with our families</p>
+
+    <h1>Amy <span>&</span> Osi</h1>
+
+    <p class="cover-subtitle">
+      Two hearts, one promise,<br>
+      a beautiful beginning.
+    </p>
+
+    <button class="open-btn" onclick="openInvitation()">
+      OPEN INVITATION
+    </button>
+
+    <p class="cover-date">02 · JANUARY · 2027</p>
+  </div>
 </section>
+
+<!-- MAIN INVITATION -->
 
 <main id="invitation">
 
-  <section class="section">
-    <p class="small">Save the date</p>
-    <h2>A beautiful beginning</h2>
-    <p>Saturday, January 2, 2027</p>
-    <div id="countdown"></div>
+  <section class="section intro">
+    <div class="section-inner">
+      <p class="section-label">You are cordially invited</p>
+
+      <h1 class="names">
+        Amy
+        <span class="ampersand">&</span>
+        Osi
+      </h1>
+
+      <div class="divider"></div>
+
+      <p>
+        With joyful hearts and grateful spirits,
+        we invite you to witness and celebrate
+        the beginning of our forever.
+      </p>
+
+      <p class="date-display">
+        Saturday, January 2, 2027
+      </p>
+
+      <p style="margin-top:12px;">
+        The Daniels & Okoroafors Families
+      </p>
+    </div>
   </section>
 
-  <section class="section">
-    <p class="small">Our special day</p>
-    <h2>Amy & Osi</h2>
-    <p class="date">January 2, 2027</p>
-    <p class="details">
-      Two families, two hearts, one beautiful union.<br>
-      We would be honoured to have you celebrate with us.
-    </p>
+  <!-- COUNTDOWN -->
+
+  <section class="section countdown-section">
+    <div class="section-inner">
+      <p class="section-label">Counting down to forever</p>
+      <h2>Our Special Day</h2>
+
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <strong id="days">000</strong>
+          <span>Days</span>
+        </div>
+
+        <div class="countdown-item">
+          <strong id="hours">00</strong>
+          <span>Hours</span>
+        </div>
+
+        <div class="countdown-item">
+          <strong id="minutes">00</strong>
+          <span>Minutes</span>
+        </div>
+
+        <div class="countdown-item">
+          <strong id="seconds">00</strong>
+          <span>Seconds</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="section">
-    <h2>Venue</h2>
-    <p class="details">
-      Venue details coming soon<br>
-      Location to be announced
-    </p>
-    <a class="rsvp" href="#" onclick="return false;">GET DIRECTIONS</a>
-  </section>
+  <!-- WEDDING DETAILS -->
 
   <section class="section">
-    <h2>RSVP</h2>
-    <p>We look forward to celebrating with you.</p>
-    <a class="rsvp" href="https://wa.me/2340000000000">
-      CONFIRM ATTENDANCE
-    </a>
+    <div class="section-inner">
+      <p class="section-label">The celebration</p>
+      <h2>Wedding Details</h2>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Traditional Wedding</h3>
+          <p>Saturday, January 2, 2027</p>
+          <p>Time: To be announced</p>
+        </div>
+
+        <div class="detail-card">
+          <h3>Reception</h3>
+          <p>Saturday, January 2, 2027</p>
+          <p>Time: To be announced</p>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- VENUE -->
+
+  <section class="section soft-section">
+    <div class="section-inner">
+      <p class="section-label">Join us at</p>
+      <h2>The Venue</h2>
+
+      <p>
+        We cannot wait to welcome you
+        to our special celebration.
+      </p>
+
+      <div class="divider"></div>
+
+      <h3 style="font-family:'Cormorant Garamond';font-size:29px;font-weight:400;">
+        Venue details coming soon
+      </h3>
+
+      <p style="margin-top:10px;">
+        Location and directions will be updated here.
+      </p>
+
+      <a class="action-btn" href="#" onclick="return false;">
+        VENUE DIRECTIONS
+      </a>
+    </div>
+  </section>
+
+  <!-- ORDER OF EVENTS -->
+
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">The day's programme</p>
+      <h2>Order of Events</h2>
+
+      <div class="events">
+        <div class="event">
+          <div class="event-time">Time TBC</div>
+          <div>
+            <div class="event-name">Guest Arrival</div>
+            <p class="event-description">Welcome and seating</p>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="event-time">Time TBC</div>
+          <div>
+            <div class="event-name">Traditional Ceremony</div>
+            <p class="event-description">The celebration of our union</p>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="event-time">Time TBC</div>
+          <div>
+            <div class="event-name">Reception</div>
+            <p class="event-description">Food, music and celebration</p>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="event-time">Time TBC</div>
+          <div>
+            <div class="event-name">Dance & Celebration</div>
+            <p class="event-description">Making beautiful memories</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRESS CODE -->
+
+  <section class="section soft-section">
+    <div class="section-inner">
+      <p class="section-label">Dress to celebrate</p>
+      <h2>Dress Code</h2>
+
+      <div class="dress-box">
+        <h3>Traditional Elegance</h3>
+        <p>
+          Come dressed in your finest traditional attire
+          as we celebrate love, culture and family.
+        </p>
+        <p style="margin-top:15px;color:#977a65;">
+          Colour details to be announced.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">A glimpse of our journey</p>
+      <h2>Our Moments</h2>
+
+      <div class="gallery-placeholder" id="galleryPlaceholder">
+        Our photographs will be added here soon.
+      </div>
+
+      <div class="gallery" id="gallery" style="display:none;">
+        <!-- Replace these image paths with your own photos -->
+        <img src="photos/photo1.jpg" alt="Amy and Osi">
+        <img src="photos/photo2.jpg" alt="A special moment">
+        <img src="photos/photo3.jpg" alt="Our memories">
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+
+  <section class="section soft-section">
+    <div class="section-inner">
+      <p class="section-label">We saved a place for you</p>
+      <h2>Kindly RSVP</h2>
+
+      <p>
+        Your presence would make our celebration
+        even more special. Kindly confirm your attendance.
+      </p>
+
+      <a class="action-btn" href="#" onclick="sendRSVP(event)">
+        CONFIRM ATTENDANCE
+      </a>
+
+      <p style="font-size:11px;margin-top:15px;">
+        We look forward to celebrating with you.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
 
   <footer>
-    <p class="small">With love</p>
-    <h2 style="margin-top:15px;">Amy & Osi</h2>
-    <p>January 2, 2027</p>
+    <p>WITH LOVE AND GRATITUDE</p>
+    <h2>Amy & Osi</h2>
+    <p>JANUARY 2, 2027</p>
+
+    <div class="divider"></div>
+
+    <p>ONE LOVE. ONE LIFETIME. ONE BEAUTIFUL BEGINNING.</p>
   </footer>
 
 </main>
 
 <script>
+
+// OPEN THE INVITATION
+
 function openInvitation() {
   document.getElementById("cover").style.display = "none";
-  document.getElementById("invitation").style.display = "block";
-  window.scrollTo(0, 0);
+
+  const invitation = document.getElementById("invitation");
+  invitation.classList.add("show");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-const weddingDate = new Date("2027-01-02T10:00:00+01:00").getTime();
+// WEDDING COUNTDOWN
+// Currently counts down to midnight at the start of January 2, 2027,
+// in Nigerian time (WAT).
+
+const weddingDate = new Date(
+  "2027-01-02T00:00:00+01:00"
+).getTime();
 
 function updateCountdown() {
-  const now = new Date().getTime();
+  const now = Date.now();
   const distance = weddingDate - now;
 
   if (distance <= 0) {
     document.getElementById("countdown").innerHTML =
-      "Today is our special day! ❤️";
+      "<p>Today is our special day! ❤️</p>";
     return;
   }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / (1000 * 60)) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
+  const days = Math.floor(distance / 86400000);
+  const hours = Math.floor((distance % 86400000) / 3600000);
+  const minutes = Math.floor((distance % 3600000) / 60000);
+  const seconds = Math.floor((distance % 60000) / 1000);
 
-  document.getElementById("countdown").innerHTML =
-    days + " days · " + hours + " hours · " +
-    minutes + " minutes · " + seconds + " seconds";
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2, "0");
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// RSVP THROUGH WHATSAPP
+// Replace the number below with your WhatsApp number.
+// Use country code, without + or spaces.
+
+const RSVP_WHATSAPP = "234XXXXXXXXXX";
+
+function sendRSVP(event) {
+  event.preventDefault();
+
+  if (RSVP_WHATSAPP.includes("X")) {
+    alert("The wedding RSVP WhatsApp number has not been added yet.");
+    return;
+  }
+
+  const message =
+    "Hello Amy & Osi! I would love to confirm my attendance at your wedding on January 2, 2027.";
+
+  const url =
+    "https://wa.me/" + RSVP_WHATSAPP +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
 </script>
 
 </body>
