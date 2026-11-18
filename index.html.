@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amy & Osi | Wedding Invitation</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f7f1e8;
+  color: #541b2d;
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: #541b2d;
+  color: #f7f1e8;
+}
+
+.small {
+  letter-spacing: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.names {
+  font-size: clamp(48px, 12vw, 85px);
+  font-weight: normal;
+  font-style: italic;
+  margin: 25px 0;
+}
+
+button {
+  padding: 14px 28px;
+  margin-top: 25px;
+  border: 1px solid #e4cda9;
+  background: transparent;
+  color: #f7f1e8;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+#invitation {
+  display: none;
+}
+
+.section {
+  padding: 70px 25px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 25px;
+}
+
+.date {
+  font-size: 24px;
+  margin: 20px;
+}
+
+#countdown {
+  font-size: 20px;
+  line-height: 2;
+  margin-top: 25px;
+}
+
+.details {
+  line-height: 2;
+  margin-top: 20px;
+}
+
+.rsvp {
+  display: inline-block;
+  padding: 15px 30px;
+  margin-top: 30px;
+  background: #541b2d;
+  color: #f7f1e8;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+footer {
+  background: #541b2d;
+  color: #f7f1e8;
+  padding: 35px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero" id="cover">
+  <p class="small">Together with our families</p>
+  <h1 class="names">Amy & Osi</h1>
+  <p>Invite you to celebrate the beginning of forever</p>
+  <button onclick="openInvitation()">OPEN INVITATION</button>
+</section>
+
+<main id="invitation">
+
+  <section class="section">
+    <p class="small">Save the date</p>
+    <h2>A beautiful beginning</h2>
+    <p>Saturday, January 2, 2027</p>
+    <div id="countdown"></div>
+  </section>
+
+  <section class="section">
+    <p class="small">Our special day</p>
+    <h2>Amy & Osi</h2>
+    <p class="date">January 2, 2027</p>
+    <p class="details">
+      Two families, two hearts, one beautiful union.<br>
+      We would be honoured to have you celebrate with us.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Venue</h2>
+    <p class="details">
+      Venue details coming soon<br>
+      Location to be announced
+    </p>
+    <a class="rsvp" href="#" onclick="return false;">GET DIRECTIONS</a>
+  </section>
+
+  <section class="section">
+    <h2>RSVP</h2>
+    <p>We look forward to celebrating with you.</p>
+    <a class="rsvp" href="https://wa.me/2340000000000">
+      CONFIRM ATTENDANCE
+    </a>
+  </section>
+
+  <footer>
+    <p class="small">With love</p>
+    <h2 style="margin-top:15px;">Amy & Osi</h2>
+    <p>January 2, 2027</p>
+  </footer>
+
+</main>
+
+<script>
+function openInvitation() {
+  document.getElementById("cover").style.display = "none";
+  document.getElementById("invitation").style.display = "block";
+  window.scrollTo(0, 0);
+}
+
+const weddingDate = new Date("2027-01-02T10:00:00+01:00").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  if (distance <= 0) {
+    document.getElementById("countdown").innerHTML =
+      "Today is our special day! ❤️";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    days + " days · " + hours + " hours · " +
+    minutes + " minutes · " + seconds + " seconds";
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
